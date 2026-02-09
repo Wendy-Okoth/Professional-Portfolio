@@ -1,0 +1,746 @@
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    /* Define Color Variables - Increased Contrast */
+    --primary-color: #007BFF;       /* 💙 Vibrant Blue (Main Accent) */
+    --secondary-color: #A968FF;     /* 💜 Lighter Purple (Secondary Highlight/Links) */
+    
+    /* BACKGROUNDS (Increased Distinction) */
+    --background-dark: #0A051D;     /* Deepest Navy/Near-Black (Main Page) */
+    --background-light: #162447;    /*    #2C344A; Brighter Medium Purple (Card/Section Backgrounds) */
+    
+    /* TEXT & UTILITY */
+    --text-light: #EAEAEA;          /* Light off-white for main text */
+    --text-dark: #121212;           /* Dark text for certain elements */
+    --border-color: #4A377D;        /* Slightly Lighter Purple Border for contrast */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Navbar Styles */
+/* Glassmorphism Navbar */
+.navbar {
+    /* Major Color: Deep Purple (using your variable with transparency) */
+    background-color: rgba(22, 36, 71, 0.85); 
+    
+    /* The Glass Effect */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    
+    padding: 1.4rem 2rem; /* Increased padding for a "longer/taller" look */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    /* Minor Color: Purple Border */
+    border-bottom: 1px solid var(--border-color); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 1. Bigger Avatar */
+/* 1. Sharper Avatar Fix */
+.nav-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    
+    /* CRITICAL: Force the browser to prioritize sharpness over smoothing */
+    image-rendering: -webkit-optimize-contrast; 
+    image-rendering: crisp-edges;
+    
+    /* Boost contrast and slightly reduce brightness to define edges */
+    filter: contrast(1.1) brightness(1.0); 
+    
+    /* High-fidelity rendering for geometric shapes (the circle) */
+    shape-rendering: geometricPrecision;
+
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+    
+    /* Prevents any transition from blurring the image during load */
+    will-change: transform; 
+}
+.nav-avatar:hover {
+    transform: scale(1.05);
+    filter: contrast(1.15) brightness(1.05); /* Sharpens even more on hover */
+    border-color: var(--secondary-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 2. New Color for Name */
+.nav-name {
+    font-weight: bold;
+    font-size: 1.6rem;
+    /* Using your secondary purple or a custom lavender-grey */
+    color: var(--secondary-color); 
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+
+/* 3. New Color for Typewriter Titles */
+.nav-subtitle {
+    font-size: 0.9rem;
+    /* Using the primary blue or a lighter grey-blue to contrast the purple name */
+    color: #8bb9fe; 
+    font-weight: 500;
+    margin-top: 2px;
+    min-height: 1.2em;
+}
+
+/* Ensure the text group aligns well with the bigger image */
+.nav-text-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    /* Minor Color: Grey */
+    color: #aeb9cc; 
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Hover Effect: Blue Glow */
+.nav-links a:hover {
+    color: var(--primary-color); 
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+/* Modern underline animation on hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Use a clean, readable font */
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--background-dark);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Base Link Styles */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #4da9ff; /* Brighter shade of primary color on hover */
+}
+
+/* ================================== */
+/* 2. Layout & Structure              */
+/* ================================== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    min-height: 50vh; /* Ensures sections have some minimum height */
+}
+
+/* ================================== */
+/* New Card Style Overrides           */
+/* ================================== */
+
+/* This targets ALL sections that have both classes: container AND card-style */
+.container.card-style {
+    background-color: var(--background-light); /* Sets the background for light/default cards */
+    padding: 50px 40px; /* OVERRIDES the container padding for a card look */
+    margin-bottom: 40px; /* Adds space between cards */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-left: 5px solid var(--primary-color);
+}
+
+/* This targets cards that are ALSO marked with the dark-bg class */
+.dark-bg.card-style {
+    background-color: var(--background-dark); /* Overrides background-light with background-dark */
+    border-left: 5px solid var(--secondary-color); /* Changes accent border color */
+}
+
+/* Headings */
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    display: inline-block;
+}
+
+/* Highlight Text */
+.highlight {
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+}
+
+.btn.primary:hover {
+    background-color: #4da9ff;
+    transform: translateY(-2px);
+}
+
+/* ================================== */
+/* 3. Header & Navigation             */
+/* ================================== */
+header {
+    background-color: var(--background-dark);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* JavaScript 'scrolled' class */
+header.scrolled {
+    background-color: #121226; /* Slightly darker when scrolled */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+header nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+}
+
+header ul li {
+    margin-left: 30px;
+}
+
+header ul a {
+    color: var(--text-light);
+    font-weight: 500;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+}
+
+header ul a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* ================================== */
+/* 4. Home (Hero) Section             */
+/* ================================== */
+#home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 50px; /* Adjust as needed */
+}
+
+#home h1 {
+    font-size: 4em;
+    margin-bottom: 15px;
+}
+
+#home .tagline {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+}
+
+/* ================================== */
+/* 5. About & Skills Section          */
+/* ================================== */
+#about p {
+    margin-bottom: 20px;
+}
+
+#skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+#skills-list span {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.education-item {
+    padding: 15px;
+    border-left: 3px solid var(--primary-color);
+    margin-bottom: 20px;
+    background-color: var(--background-dark);
+    border-radius: 5px;
+}
+
+.education-item h4 {
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+.education-item p {
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+
+/* ================================== */
+/* 6. Projects Section                */
+/* ================================== */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--background-dark);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-top: 4px solid var(--primary-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.project-card h3 {
+    color: var(--text-light);
+}
+
+.project-card a {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* ================================== */
+/* 7. Contact Section                 */
+/* ================================== */
+#contact {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.contact-details, #contact-form {
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--background-dark);
+}
+
+.contact-details h3, #contact-form h3 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+#contact-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="tel"],
+#contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    font-size: 1em;
+}
+
+#contact-form textarea {
+    resize: vertical;
+}
+
+/* ================================== */
+/* 8. Footer                          */
+/* ================================== */
+/* 8. Footer (Updated)                */
+/* ================================== */
+/* Glassmorphism Footer - Mirroring Navbar */
+footer {
+    /* Major Color: Deep Purple (Transparent) */
+    background-color: rgba(22, 36, 71, 0.85); 
+    
+    /* The Glass Effect */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Increased padding to match the tall navbar */
+    padding: 2.5rem 0; 
+    
+    /* Minor Color: Purple Border */
+    border-top: 1px solid var(--border-color); 
+    text-align: center;
+    color: #aeb9cc; /* Minor Grey for text */
+    font-size: 0.95em;
+    
+    /* Subtle shadow to give it depth */
+    box-shadow: 0 -8px 32px 0 rgba(0, 0, 0, 0.37);
+    margin-top: 60px;
+}
+
+footer p {
+    margin-bottom: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.social-links a {
+    /* Minor Color: Grey */
+    color: #aeb9cc; 
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+/* Hover Effect: Blue Glow to match Navbar links */
+.social-links a:hover {
+    color: var(--primary-color); 
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+.footer-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    /* Keeps icons slightly dim until hover */
+    filter: brightness(0.9);
+    transition: filter 0.3s ease;
+}
+
+.social-links a:hover .footer-icon {
+    filter: brightness(1) drop-shadow(0 0 5px var(--primary-color));
+}
+
+.separator {
+    color: var(--border-color);
+    padding: 0 5px;
+    opacity: 0.6;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .social-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .separator {
+        display: none; /* Hide bars on mobile for better stacking */
+    }
+}
+
+/* ================================== */
+/* 9. Media Queries (Responsiveness)  */
+/* ================================== */
+@media (max-width: 900px) {
+    #contact {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header/Navigation adjustments */
+    header nav {
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+
+    header ul {
+        margin-top: 10px;
+    }
+
+    header ul li {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    /* Home Section adjustments */
+    #home {
+        padding: 50px 20px;
+        align-items: center;
+        text-align: center;
+        min-height: 70vh;
+    }
+
+    #home h1 {
+        font-size: 3em;
+    }
+
+    /* General Section Padding */
+    .container {
+        padding: 60px 20px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    header ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header ul li {
+        margin: 5px 10px;
+    }
+
+    #home h1 {
+        font-size: 2.5em;
+    }
+}
+
+/* ================================== */
+/* 5.5 Skills Section Styling         */
+/* ================================== */
+
+#skills {
+    padding-top: 50px; /* Adjust padding for better look if needed */
+}
+
+.skill {
+    margin-bottom: 30px;
+}
+
+.skill p {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.skill-bar {
+    background-color: var(--background-dark); /* Dark background for the bar track */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    height: 18px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background-color: var(--primary-color);
+    text-align: right;
+    padding-right: 10px;
+    line-height: 18px; /* Vertically align the percentage text */
+    font-size: 0.8em;
+    font-weight: bold;
+    color: var(--text-dark); /* Dark text on the bright bar for contrast */
+    
+    /* Initial State for Animation 
+       The actual width will be set by the individual classes below 
+    */
+    width: 0;
+    transition: width 1.5s ease-out; 
+}
+
+/* Define Individual Skill Widths and Colors (Optional Color Tweak) */
+
+.skill-level.html {
+    /* HTML/CSS - Set your level */
+    width: 90%; 
+}
+
+.skill-level.js {
+    /* JavaScript/TypeScript */
+    width: 75%;
+}
+
+.skill-level.modern {
+    /* JavaScript/TypeScript */
+    width: 85%;
+}
+
+.skill-level.compiled {
+    /* Python/Java/C/C++ */
+    width: 60%;
+    /* Optional: Use the secondary purple color for a stack distinction */
+  /*  background-color: var(--secondary-color); */
+}
+
+.skill-level.react {
+    /* React/Node.js */
+    width: 70%;
+}
+
+.skill-level.sql {
+    /* React/Node.js */
+    width: 80%;
+}
+
+
+.timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding-left: 30px;
+    /* Use Primary Color for the vertical line */
+    border-left: 3px solid var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -10px;
+    top: 7px;
+    width: 10px;
+    height: 10px;
+    /* Use Primary Color for the dot background */
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    /* Use Light Text Color for the dot border */
+    border: 2px solid var(--text-light);
+    /* Use a translucent Primary Color for the shadow/glow */
+    box-shadow: 0 0 0 3px #007BFF33; 
+}
+
+
+.timeline-content h3 {
+    margin: 0;
+    font-size: 1rem;
+    /* Use Primary Color for the heading/date */
+    color: var(--primary-color);
+}
+
+.timeline-content p {
+    margin: 0.3rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    /* Ensure paragraph text uses the theme's main text color */
+    color: var(--text-light);
+}
+
+.timeline-item-content {
+    padding-left: 1.0rem;
+}
+
+.timeline-item-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 2px; /* 💡 REDUCED SPACE HERE (was 5px) */
+    font-size: 1.1em;
+}
+
+.timeline-item-content p {
+    color: var(--text-light);
+    margin: 2px 0 0; /* 💡 REDUCED SPACE HERE (was 0) and added 2px top margin */
+    font-size: 0.95em;
+}

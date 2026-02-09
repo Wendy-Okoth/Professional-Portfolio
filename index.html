@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wendy Okoth - Professional Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+    <img src="assets/portforlioimage.jpg" alt="Wendy Okoth" class="nav-avatar">
+    <div class="nav-text-group">
+        <span class="nav-name">Wendy Okoth</span>
+        <p id="nav-tagline" class="nav-subtitle"></p>
+    </div>
+    </div>
+
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Tech Stack</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#form">Contact Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>Hi, I'm <span class="highlight">Wendy Okoth</span></h1>
+        <p class="hero-tagline">Building digital solutions with precision and passion.</p>
+    </section>
+
+    <section id="about" class="container card-style">
+        <h2>About Me</h2>
+        <p>I'm Wendy Okoth, a passionate full stack developer who thrives on transforming ideas into real-world applications and captivating websites. I'm driven by curiosity, continuous learning, and the satisfaction that comes from turning complex code into something meaningful.</p>
+    </section>
+
+    <section id="education" class="container card-style">
+        <h2>Educational Background</h2> 
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="timeline-item-content">
+                    <h3>2023 – Present</h3>
+                    <p>Bachelor of Science in Applied Computing – KCA University (3rd Year)</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="timeline-item-content">
+                    <h3>2023 – Present</h3>
+                    <p>ACCA – Association of Chartered Certified Accountants<br>
+                    Completed: F2 (Management Accounting), F4 (Corporate and Business Law)</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="timeline-item-content">
+                    <h3>2019 – 2022</h3>
+                    <p>Apostolic Carmel Girls Secondary School | KCSE Grade: B+</p>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 1rem;">
+            📄 <a href="assets/resume.pdf" download>Download My CV</a>
+        </p>
+    </section>
+
+    <section id="skills" class="container card-style">
+        <h2>Tech Stack</h2>
+        <div class="skill">
+            <p>HTML / CSS</p>
+            <div class="skill-bar"><div class="skill-level html"></div></div>
+        </div>
+        <div class="skill">
+            <p>JavaScript</p>
+            <div class="skill-bar"><div class="skill-level js"></div></div>
+        </div>
+        <div class="skill">
+            <p>Python / Java</p>
+            <div class="skill-bar"><div class="skill-level modern"></div></div>
+        </div>
+        <div class="skill">
+            <p>React / Node.js</p>
+            <div class="skill-bar"><div class="skill-level react"></div></div>
+        </div>
+    </section>
+
+    <section id="projects" class="container card-style"> 
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card glass-card">
+                <h3>Project Title 1</h3>
+                <p>A short description of the project and technologies used.</p>
+                <a href="#" target="_blank">View Project</a>
+            </div>
+            <div class="project-card glass-card">
+                <h3>Project Title 2</h3>
+                <p>Future innovation in progress.</p>
+                <a href="#" target="_blank">Coming Soon</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="form" class="container card-style">
+        <h2>Send Me a Message</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Mary Jane" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="maryjane@gmail.com" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit" class="btn primary">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="glass-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Wendy Okoth. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:wendyaokoth@gmail.com">
+                    <img src="assets/email.png" alt="Email Icon" class="footer-icon">
+                    
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/Wendy-Okoth" target="_blank">
+                    <img src="assets/github.png" alt="GitHub Icon" class="footer-icon">
+                   
+                </a>
+                <span class="separator">|</span>
+                <a href="https://www.linkedin.com/in/wendy-okoth-329b98236/" target="_blank">
+                    <img src="assets/linkedin.png" alt="LinkedIn Icon" class="footer-icon">
+                   
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
