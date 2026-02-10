@@ -335,8 +335,68 @@ header ul a:hover {
 /* ================================== */
 /* 5. About & Skills Section          */
 /* ================================== */
+/* Create space for the fixed navbar */
+.hero-spacer {
+    height: 100px; /* Adjust this height based on how much space you want */
+}
+
+/* Ensure sections don't hide under the navbar when clicking nav links */
+section {
+    scroll-margin-top: 120px; 
+}
+
+/* Styling the about me text for better readability */
 #about p {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.interests-text {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    font-style: italic;
+    color: var(--text-grey); /* Using your grey variable for a subtle look */
+}
+/* Styling for the Interests List inside About Me */
+.interests-container {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.interests-container h3 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    text-align: left; /* Keep this sub-heading left-aligned */
+}
+
+.interests-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 5px;
+}
+
+.interests-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+/* Custom Bullet: A small blue square or circle */
+.interests-list li::before {
+    content: "▹"; /* A stylish arrow or bullet */
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.interests-list li:hover {
+    transform: translateX(10px);
+    color: var(--primary-color);
 }
 
 #skills-list {

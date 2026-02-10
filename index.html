@@ -1,142 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wendy Okoth - Professional Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy-dark': '#0A051D',
+                        'navy-light': '#162447',
+                        'primary-blue': '#007BFF',
+                        'accent-purple': '#A968FF',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="bg-navy-dark text-gray-200 font-sans">
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-    <img src="assets/portforlioimage.jpg" alt="Wendy Okoth" class="nav-avatar">
-    <div class="nav-text-group">
-        <span class="nav-name">Wendy Okoth</span>
-        <p id="nav-tagline" class="nav-subtitle"></p>
-    </div>
-    </div>
-
-            <ul class="nav-links">
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Tech Stack</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#form">Contact Me</a></li>
+    <nav class="fixed top-0 w-full z-50 bg-navy-light/85 backdrop-blur-md border-b border-purple-900/50 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="assets/portforlioimage.jpg" alt="Wendy Okoth" 
+                     class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-primary-blue shadow-lg shadow-blue-500/20">
+                <div>
+                    <span class="block text-xl md:text-2xl font-bold text-accent-purple tracking-wide">Wendy Okoth</span>
+                    <p id="nav-tagline" class="text-xs md:text-sm text-blue-300 font-medium min-h-[1.2em]"></p>
+                </div>
+            </div>
+            <ul class="hidden md:flex gap-8 font-medium text-gray-400">
+                <li><a href="#about" class="hover:text-primary-blue transition-colors">About Me</a></li>
+                <li><a href="#education" class="hover:text-primary-blue transition-colors">Education</a></li>
+                <li><a href="#skills" class="hover:text-primary-blue transition-colors">Tech Stack</a></li>
+                <li><a href="#projects" class="hover:text-primary-blue transition-colors">Projects</a></li>
+                <li><a href="#form" class="hover:text-primary-blue transition-colors">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <h1>Hi, I'm <span class="highlight">Wendy Okoth</span></h1>
-        <p class="hero-tagline">Building digital solutions with precision and passion.</p>
-    </section>
+    <div class="h-32 md:h-40"></div> 
 
-    <section id="about" class="container card-style">
-        <h2>About Me</h2>
-        <p>I'm Wendy Okoth, a passionate full stack developer who thrives on transforming ideas into real-world applications and captivating websites. I'm driven by curiosity, continuous learning, and the satisfaction that comes from turning complex code into something meaningful.</p>
-    </section>
+    <main class="max-w-4xl mx-auto px-6 space-y-12 pb-20">
+        
+        <section id="about" class="bg-navy-light p-8 rounded-2xl shadow-2xl border-l-4 border-primary-blue">
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary-blue inline-block pb-2">About Me</h2>
+            <p class="leading-relaxed mb-6">
+                I'm Wendy Okoth, a passionate full stack developer who thrives on transforming ideas into real-world applications and captivating websites. I'm driven by curiosity and the satisfaction of turning complex code into something meaningful.
+            </p>
+            <div class="pt-6 border-t border-gray-700">
+                <p class="italic text-gray-400 mb-4 text-sm">Beyond technical development, I am fascinated by the intersection of computational logic and financial systems.</p>
+                <h3 class="text-lg font-semibold text-accent-purple mb-4">Core Interests</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-2 group">
+                        <span class="text-primary-blue group-hover:translate-x-1 transition-transform">▹</span>
+                        <p><span class="font-bold text-primary-blue">Financial Technology:</span> Merging accounting principles with software to build transparent financial systems.</p>
+                    </li>
+                    <li class="flex items-start gap-2 group">
+                        <span class="text-primary-blue group-hover:translate-x-1 transition-transform">▹</span>
+                        <span>Web Application Development</span>
+                    </li>
+                    <li class="flex items-start gap-2 group">
+                        <span class="text-primary-blue group-hover:translate-x-1 transition-transform">▹</span>
+                        <span>Open Source & Collaboration</span>
+                    </li>
+                    <li class="flex items-start gap-2 group">
+                        <span class="text-primary-blue group-hover:translate-x-1 transition-transform">▹</span>
+                        <span>Chess & Problem-Solving Games</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-    <section id="education" class="container card-style">
-        <h2>Educational Background</h2> 
-        <div class="timeline">
-            <div class="timeline-item">
-                <span class="timeline-dot"></span>
-                <div class="timeline-item-content">
-                    <h3>2023 – Present</h3>
-                    <p>Bachelor of Science in Applied Computing – KCA University (3rd Year)</p>
+        <section id="education" class="bg-navy-light p-8 rounded-2xl shadow-2xl border-l-4 border-accent-purple">
+            <h2 class="text-3xl font-bold mb-8 border-b-2 border-primary-blue inline-block pb-2">Educational Background</h2>
+            <div class="relative border-l-2 border-primary-blue ml-3 space-y-10">
+                <div class="pl-8 relative">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-primary-blue border-4 border-navy-dark shadow-[0_0_10px_#007BFF]"></div>
+                    <h3 class="text-primary-blue font-bold">2023 – Present</h3>
+                    <p class="text-lg">B.Sc. in Applied Computing – KCA University (3rd Year)</p>
+                </div>
+                <div class="pl-8 relative">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-primary-blue border-4 border-navy-dark shadow-[0_0_10px_#007BFF]"></div>
+                    <h3 class="text-primary-blue font-bold">2023 – Present</h3>
+                    <p class="text-lg">ACCA Candidate</p>
+                    <p class="text-sm text-accent-purple italic">F2 (Management Accounting), F4 (Business Law) Completed</p>
                 </div>
             </div>
-            <div class="timeline-item">
-                <span class="timeline-dot"></span>
-                <div class="timeline-item-content">
-                    <h3>2023 – Present</h3>
-                    <p>ACCA – Association of Chartered Certified Accountants<br>
-                    Completed: F2 (Management Accounting), F4 (Corporate and Business Law)</p>
+        </section>
+
+        <section id="skills" class="bg-navy-light p-8 rounded-2xl shadow-2xl border-l-4 border-primary-blue">
+            <h2 class="text-3xl font-bold mb-8 border-b-2 border-primary-blue inline-block pb-2">Tech Stack</h2>
+            <div class="space-y-6">
+                <div>
+                    <p class="font-bold mb-2">HTML / CSS / Tailwind</p>
+                    <div class="w-full bg-navy-dark rounded-full h-4 overflow-hidden border border-purple-900/30">
+                        <div class="bg-primary-blue h-full w-[90%] rounded-full shadow-[0_0_10px_#007BFF]"></div>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-bold mb-2">JavaScript</p>
+                    <div class="w-full bg-navy-dark rounded-full h-4 overflow-hidden border border-purple-900/30">
+                        <div class="bg-primary-blue h-full w-[75%] rounded-full shadow-[0_0_10px_#007BFF]"></div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <span class="timeline-dot"></span>
-                <div class="timeline-item-content">
-                    <h3>2019 – 2022</h3>
-                    <p>Apostolic Carmel Girls Secondary School | KCSE Grade: B+</p>
+        </section>
+
+        <section id="projects" class="bg-navy-light p-8 rounded-2xl shadow-2xl border-l-4 border-accent-purple">
+            <h2 class="text-3xl font-bold mb-8 border-b-2 border-primary-blue inline-block pb-2">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="group bg-navy-dark p-6 rounded-xl border border-purple-900/50 hover:border-primary-blue transition-all hover:-translate-y-2">
+                    <h3 class="text-xl font-bold text-accent-purple mb-2">Project Title 1</h3>
+                    <p class="text-sm text-gray-400 mb-4">A short description of the project and technologies used.</p>
+                    <a href="#" target="_blank" class="text-primary-blue font-semibold group-hover:underline">View Project →</a>
+                </div>
+                <div class="group bg-navy-dark p-6 rounded-xl border border-purple-900/50 hover:border-primary-blue transition-all hover:-translate-y-2">
+                    <h3 class="text-xl font-bold text-accent-purple mb-2">Project Title 2</h3>
+                    <p class="text-sm text-gray-400 mb-4">Future innovation in progress.</p>
+                    <a href="#" target="_blank" class="text-primary-blue font-semibold group-hover:underline">Coming Soon →</a>
                 </div>
             </div>
-        </div>
-        <p style="margin-top: 1rem;">
-            📄 <a href="assets/resume.pdf" download>Download My CV</a>
-        </p>
-    </section>
+        </section>
 
-    <section id="skills" class="container card-style">
-        <h2>Tech Stack</h2>
-        <div class="skill">
-            <p>HTML / CSS</p>
-            <div class="skill-bar"><div class="skill-level html"></div></div>
-        </div>
-        <div class="skill">
-            <p>JavaScript</p>
-            <div class="skill-bar"><div class="skill-level js"></div></div>
-        </div>
-        <div class="skill">
-            <p>Python / Java</p>
-            <div class="skill-bar"><div class="skill-level modern"></div></div>
-        </div>
-        <div class="skill">
-            <p>React / Node.js</p>
-            <div class="skill-bar"><div class="skill-level react"></div></div>
-        </div>
-    </section>
+        <section id="form" class="bg-navy-light p-8 rounded-2xl shadow-2xl border-l-4 border-primary-blue">
+            <h2 class="text-3xl font-bold mb-8 border-b-2 border-primary-blue inline-block pb-2">Send Me a Message</h2>
+            <form id="contact-form" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Name</label>
+                        <input type="text" placeholder="Mary Jane" required class="w-full bg-navy-dark border border-purple-900/50 rounded-lg p-3 focus:outline-none focus:border-primary-blue">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Email</label>
+                        <input type="email" placeholder="maryjane@gmail.com" required class="w-full bg-navy-dark border border-purple-900/50 rounded-lg p-3 focus:outline-none focus:border-primary-blue">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-2">Message</label>
+                    <textarea rows="4" class="w-full bg-navy-dark border border-purple-900/50 rounded-lg p-3 focus:outline-none focus:border-primary-blue"></textarea>
+                </div>
+                <button type="submit" class="w-full md:w-auto px-10 py-3 bg-primary-blue text-navy-dark font-bold rounded-lg hover:bg-blue-400 transition-colors uppercase">
+                    Send Message
+                </button>
+            </form>
+        </section>
 
-    <section id="projects" class="container card-style"> 
-        <h2>My Projects</h2>
-        <div class="project-grid">
-            <div class="project-card glass-card">
-                <h3>Project Title 1</h3>
-                <p>A short description of the project and technologies used.</p>
-                <a href="#" target="_blank">View Project</a>
-            </div>
-            <div class="project-card glass-card">
-                <h3>Project Title 2</h3>
-                <p>Future innovation in progress.</p>
-                <a href="#" target="_blank">Coming Soon</a>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <section id="form" class="container card-style">
-        <h2>Send Me a Message</h2>
-        <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Mary Jane" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="maryjane@gmail.com" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            <button type="submit" class="btn primary">Send Message</button>
-        </form>
-    </section>
-
-    <footer class="glass-footer">
-        <div class="footer-container">
-            <p>&copy; 2026 Wendy Okoth. All rights reserved.</p>
-            <div class="social-links">
-                <a href="mailto:wendyaokoth@gmail.com">
-                    <img src="assets/email.png" alt="Email Icon" class="footer-icon">
-                    
-                </a>
-                <span class="separator">|</span>
-                <a href="https://github.com/Wendy-Okoth" target="_blank">
-                    <img src="assets/github.png" alt="GitHub Icon" class="footer-icon">
-                   
-                </a>
-                <span class="separator">|</span>
-                <a href="https://www.linkedin.com/in/wendy-okoth-329b98236/" target="_blank">
-                    <img src="assets/linkedin.png" alt="LinkedIn Icon" class="footer-icon">
-                   
-                </a>
-            </div>
+    <footer class="bg-navy-light/80 backdrop-blur-md border-t border-purple-900 py-10 text-center">
+        <p class="mb-6 font-medium text-gray-400">© 2026 Wendy Okoth. All rights reserved.</p>
+        <div class="flex justify-center gap-10">
+            <a href="mailto:wendyaokoth@gmail.com" class="group transition-transform hover:scale-110">
+                <img src="assets/email.png" class="w-7 h-7 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" alt="Email">
+            </a>
+            <a href="https://github.com/Wendy-Okoth" target="_blank" class="group transition-transform hover:scale-110">
+                <img src="assets/github.png" class="w-7 h-7 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" alt="Github">
+            </a>
+            <a href="https://www.linkedin.com/in/wendy-okoth-329b98236" target="_blank" class="group transition-transform hover:scale-110">
+                <img src="assets/linkedin.png" class="w-7 h-7 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" alt="LinkedIn">
+            </a>
         </div>
     </footer>
 
