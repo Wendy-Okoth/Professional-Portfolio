@@ -1,27 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wendy Okoth - Professional Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'navy-dark': '#0A051D',
-                        'navy-light': '#162447',
-                        'primary-blue': '#007BFF',
-                        'accent-purple': '#A968FF',
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wendy Okoth - Professional Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'navy-dark': '#0A051D',
+            'navy-light': '#162447',
+            'primary-blue': '#007BFF',
+            'accent-purple': '#A968FF',
+          }
         }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      }
+    }
+  </script>
 
+  <!-- Custom CSS -->
+  <style>
+    .perspective {
+      perspective: 1000px;
+    }
+    .preserve-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    .flip-card {
+      transition: transform 0.7s;
+    }
+    .group:hover .flip-card {
+      transform: rotateY(180deg);
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body class="bg-navy-dark text-gray-200 font-sans">
 
     <nav class="fixed top-0 w-full z-50 bg-navy-light/85 backdrop-blur-md border-b border-purple-900/50 px-6 py-4">
@@ -200,22 +223,79 @@
     </div>
 </section>
 
+<section id="projects" class="bg-navy-light p-8 rounded-2xl shadow-2xl border-l-4 border-accent-purple">
+    <h2 class="text-3xl font-bold mb-8 border-b-2 border-primary-blue inline-block pb-2">My Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Kasarani Academy LMS Project -->
+        <div class="group perspective">
+  <div class="relative preserve-3d flip-card w-full h-96">
+      
+      <!-- Front Side -->
+      <div class="absolute backface-hidden bg-navy-dark p-6 rounded-xl border border-purple-900/50 w-full h-full flex flex-col justify-between">
+          <div>
+              <h3 class="text-xl font-bold text-accent-purple mb-2">Kasarani Academy LMS</h3>
+              <p class="text-sm text-gray-400 mb-4">
+                  A Learning Management System enabling students to submit assignments, take quizzes, and access learning materials. Teachers can upload resources, grade assignments, and manage student progress.
+              </p>
+              <p class="text-sm text-gray-400 italic">
+                  Built with <span class="text-primary-blue font-semibold">Tailwind CSS</span> for the frontend and <span class="text-primary-blue font-semibold">Python Flask</span> for the backend.
+              </p>
+          </div>
+          <a href="#" target="_blank" class="text-primary-blue font-semibold group-hover:underline">View Project →</a>
+      </div>
+      
+      <!-- Back Side -->
+      <div class="absolute rotate-y-180 backface-hidden bg-navy-dark p-6 rounded-xl border border-primary-blue w-full h-full flex flex-col items-center justify-center space-y-4">
+          <img src="assets/kalms1.png" alt="Teacher Dashboard" class="rounded-lg shadow-lg w-full h-40 object-cover">
+          <img src="assets/kalms2.png" alt="Student Dashboard" class="rounded-lg shadow-lg w-full h-40 object-cover">
+      </div>
+  </div>
+</div>
 
-        <section id="projects" class="bg-navy-light p-8 rounded-2xl shadow-2xl border-l-4 border-accent-purple">
-            <h2 class="text-3xl font-bold mb-8 border-b-2 border-primary-blue inline-block pb-2">My Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="group bg-navy-dark p-6 rounded-xl border border-purple-900/50 hover:border-primary-blue transition-all hover:-translate-y-2">
-                    <h3 class="text-xl font-bold text-accent-purple mb-2">Project Title 1</h3>
-                    <p class="text-sm text-gray-400 mb-4">A short description of the project and technologies used.</p>
-                    <a href="#" target="_blank" class="text-primary-blue font-semibold group-hover:underline">View Project →</a>
-                </div>
-                <div class="group bg-navy-dark p-6 rounded-xl border border-purple-900/50 hover:border-primary-blue transition-all hover:-translate-y-2">
-                    <h3 class="text-xl font-bold text-accent-purple mb-2">Project Title 2</h3>
-                    <p class="text-sm text-gray-400 mb-4">Future innovation in progress.</p>
-                    <a href="#" target="_blank" class="text-primary-blue font-semibold group-hover:underline">Coming Soon →</a>
-                </div>
+ <div class="group perspective"> 
+    <div class="relative preserve-3d flip-card w-full h-96"> 
+        <!-- Front Side --> 
+         <div class="absolute backface-hidden bg-navy-dark p-6 rounded-xl border border-purple-900/50 w-full h-full flex flex-col justify-between"> 
+            <div>
+                 <h3 class="text-xl font-bold text-accent-purple mb-2">StoryHub Club Platform</h3>
+                  <p class="text-sm text-gray-400 mb-4"> StoryHub is a school club platform that enables students to join various book and movie clubs, interact with peers, and access selected books directly. It fosters creativity, collaboration, and shared learning experiences. </p> 
+                  <p class="text-sm text-gray-400 italic"> Developed using <span class="text-primary-blue font-semibold">Python Django</span> for the backend and <span class="text-primary-blue font-semibold">HTML, CSS, and JavaScript</span> for the frontend. </p> 
+                </div> 
+                <a href="#" target="_blank" class="text-primary-blue font-semibold group-hover:underline">View Project →</a> 
             </div>
-        </section>
+             <!-- Back Side -->
+               <div class="absolute rotate-y-180 backface-hidden bg-navy-dark p-6 rounded-xl border border-primary-blue w-full h-full flex flex-col items-center justify-center"> 
+                <img src="assets/club.png" alt="StoryHub Club Platform" class="rounded-lg shadow-lg w-full h-72 object-cover">
+             </div>
+    </div>
+</div>
+
+<!-- Makao Project -->
+<div class="group perspective">
+    <div class="relative preserve-3d flip-card w-full h-96">
+        <!-- Front Side -->
+        <div class="absolute backface-hidden bg-navy-dark p-6 rounded-xl border border-purple-900/50 w-full h-full flex flex-col justify-between">
+            <div>
+                <h3 class="text-xl font-bold text-accent-purple mb-2">Makao Housing Platform</h3>
+                <p class="text-sm text-gray-400 mb-4">
+                    Makao connects potential tenants with landlords, offering virtual house tours, integrated chat, and secure rent payments via M-Pesa. It simplifies the rental process and enhances transparency in housing.
+                </p>
+                <p class="text-sm text-gray-400 italic">
+                    Built with <span class="text-primary-blue font-semibold">Tailwind CSS</span> for the frontend and <span class="text-primary-blue font-semibold">Python Django</span> for the backend.
+                </p>
+            </div>
+            <a href="#" target="_blank" class="text-primary-blue font-semibold group-hover:underline">View Project →</a>
+        </div>
+        <!-- Back Side -->
+        <div class="absolute rotate-y-180 backface-hidden bg-navy-dark p-6 rounded-xl border border-primary-blue w-full h-full flex flex-col items-center justify-center space-y-4">
+            <img src="assets/makaotenant.png" alt="Tenant Dashboard" class="rounded-lg shadow-lg w-full h-40 object-cover">
+            <img src="assets/makaolandlord.png" alt="Landlord Dashboard" class="rounded-lg shadow-lg w-full h-40 object-cover">
+        </div>
+    </div>
+</div>
+
+</section>
 
     <section id="contact" class="bg-navy-light p-8 rounded-2xl shadow-2xl border-l-4 border-primary-blue">
     <h2 class="text-3xl font-bold mb-8 border-b-2 border-primary-blue inline-block pb-2">Get in Touch</h2>
