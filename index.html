@@ -117,6 +117,46 @@
     </div>
 </section>
 
+<section id="cv" class="bg-navy-light p-8 rounded-2xl shadow-2xl border-l-4 border-primary-blue text-center">
+    <h2 class="text-3xl font-bold mb-6 border-b-2 border-primary-blue inline-block pb-2">Curriculum Vitae</h2>
+    <p class="text-gray-300 mb-4">View or download my full CV below.</p>
+    
+    <!-- Buttons -->
+    <div class="flex flex-col md:flex-row justify-center gap-6 mb-8">
+        <!-- View CV -->
+        <button onclick="toggleResume()" 
+            class="px-8 py-4 bg-primary-blue text-navy-dark font-bold rounded-lg hover:bg-purple-500 transition-colors flex items-center justify-center">
+            <i class="fa-solid fa-eye mr-2"></i> View CV
+        </button>
+        
+        <!-- Download CV -->
+        <a href="assets/Wendy-Okoth.pdf" download 
+           class="px-8 py-4 bg-primary-blue text-navy-dark font-bold rounded-lg hover:bg-purple-500 transition-colors flex items-center justify-center">
+           <i class="fa-solid fa-download mr-2"></i> Download CV
+        </a>
+    </div>
+
+    <!-- Embedded CV Viewer -->
+    <div id="resume-viewer" class="hidden w-full border border-white/10 rounded-xl bg-navy-dark shadow-2xl">
+        <div class="bg-white/5 p-3 flex justify-between items-center border-b border-white/5">
+            <span class="text-xs text-gray-500 font-mono ml-4">Wendy-Okoth.pdf [READ-ONLY]</span>
+            <button onclick="toggleResume()" 
+                class="text-gray-400 hover:text-white px-3 py-1 hover:bg-white/10 rounded transition-colors">
+                <i class="fa-solid fa-xmark"></i> Close
+            </button>
+        </div>
+        <iframe src="assets/Wendy-Okoth.pdf" width="100%" height="800px" class="w-full rounded-b-xl">
+            <p class="text-white p-10">Your browser does not support embedding. Please download the CV instead.</p>
+        </iframe>
+    </div>
+</section>
+
+<script>
+    function toggleResume() {
+        const viewer = document.getElementById('resume-viewer');
+        viewer.classList.toggle('hidden');
+    }
+</script>
 
 
         <section id="skills" class="bg-navy-light p-8 rounded-2xl shadow-2xl border-l-4 border-primary-blue">
@@ -183,33 +223,33 @@
         <!-- LinkedIn -->
         <div class="flex items-center space-x-4">
             <a href="https://www.linkedin.com/in/wendy-okoth-329b98236/" target="_blank" 
-               class="text-primary-blue hover:text-purple-500 transition-colors">
+               class="text-primary-blue hover:text-purple-500 transition-colors flex items-center space-x-2">
                 <i class="fab fa-linkedin text-3xl"></i>
+                <span class="font-medium text-gray-300 hover:text-purple-500">Wendy-Okoth</span>
             </a>
-            <p class="text-gray-300 font-medium">LinkedIn: Wendy-Okoth</p>
         </div>
         <!-- GitHub -->
         <div class="flex items-center space-x-4">
             <a href="https://github.com/Wendy-Okoth" target="_blank" 
-               class="text-primary-blue hover:text-purple-500 transition-colors">
+               class="text-primary-blue hover:text-purple-500 transition-colors flex items-center space-x-2">
                 <i class="fab fa-github text-3xl"></i>
+                <span class="font-medium text-gray-300 hover:text-purple-500">Wendy-Okoth</span>
             </a>
-            <p class="text-gray-300 font-medium">GitHub: github.com/Wendy-Okoth</p>
         </div>
         <!-- Gmail -->
         <div class="flex items-center space-x-4">
             <a href="mailto:wendyaokoth@gmail.com" 
-               class="text-primary-blue hover:text-purple-500 transition-colors">
+               class="text-primary-blue hover:text-purple-500 transition-colors flex items-center space-x-2">
                 <i class="fas fa-envelope text-3xl"></i>
+                <span class="font-medium text-gray-300 hover:text-purple-500">wendyaokoth@gmail.com</span>
             </a>
-            <p class="text-gray-300 font-medium">Email: wendyaokoth@gmail.com</p>
         </div>
         <!-- Location -->
         <div class="flex items-center space-x-4">
             <span class="text-primary-blue">
                 <i class="fas fa-map-marker-alt text-3xl"></i>
             </span>
-            <p class="text-gray-300 font-medium">Location: Nairobi, Kenya</p>
+            <p class="text-gray-300 font-medium">Nairobi, Kenya</p>
         </div>
     </div>
 </section>
